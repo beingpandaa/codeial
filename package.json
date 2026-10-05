@@ -1,22 +1,38 @@
 {
   "name": "codeial",
-  "version": "1.0.0",
-  "description": "My all social media web application",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "social"
-  ],
-  "author": "CodingNinjas",
+  "version": "2.0.0",
+  "private": true,
+  "description": "A developer community for sharing progress, learning together, and getting unstuck.",
   "license": "ISC",
-  "dependencies": {
-    "ejs": "^3.1.8",
-    "express": "^4.16.4",
-    "express-ejs-layouts": "^2.5.1",
-    "mongoose": "^6.4.0",
-    "nodemon": "^2.0.18"
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "preview:demo": "node scripts/dev.js --preview",
+    "build": "npm run build --workspace @codeial/client",
+    "start": "npm run start --workspace @codeial/server",
+    "lint": "eslint .",
+    "format": "prettier --write client/src server/src server/scripts scripts docs README.md",
+    "test": "node --test --test-concurrency=1 server/test/*.test.js",
+    "test:e2e": "playwright test",
+    "check": "npm run lint && npm test && npm run build",
+    "seed:demo": "node server/scripts/seed.js",
+    "seed:demo:reset": "node server/scripts/seed.js --reset",
+    "admin:create": "node server/scripts/create-admin.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "@playwright/test": "^1.55.0",
+    "eslint": "^9.35.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "mongodb-memory-server": "^10.2.0",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.4"
   }
 }

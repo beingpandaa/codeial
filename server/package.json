@@ -1,0 +1,28 @@
+{
+  "name": "@codeial/server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test test/*.test.js",
+    "seed": "node scripts/seed.js"
+  },
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "cloudinary": "^2.7.0",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.18.0",
+    "multer": "^2.0.2",
+    "resend": "^6.0.0",
+    "sharp": "^0.35.5",
+    "socket.io": "^4.8.1"
+  }
+}

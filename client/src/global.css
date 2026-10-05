@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #17213e;
+  background: #f4f6fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --bg: #f4f6fb;
+  --surface: #fff;
+  --surface-soft: #f5f7fc;
+  --text: #17213e;
+  --muted: #63708b;
+  --border: #e8ecf4;
+  --primary: #345dff;
+  --primary-hover: #2349e6;
+  --accent: #e9eeff;
+  --soft-green: #eff7f3;
+  --shadow: 0 4px 24px #26396805;
+  --danger: #c14a55;
+  --code: #f2f4f9;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #111724;
+  --surface: #192233;
+  --surface-soft: #202c3f;
+  --text: #e6eaf5;
+  --muted: #9aa8c4;
+  --border: #2a3750;
+  --primary: #89a4ff;
+  --primary-hover: #a5b9ff;
+  --accent: #273b6d;
+  --soft-green: #243c36;
+  --shadow: 0 4px 24px #0002;
+  --danger: #ef8b94;
+  --code: #111b2c;
+  background: var(--bg);
+  color: var(--text);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #8ca5ff;
+  outline-offset: 4px;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #8ca5ff;
+  outline-offset: 1px;
+}
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+button {
+  color: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Manrope', sans-serif;
+}
+button {
+  border: 0;
+  background: none;
+}
+textarea {
+  resize: vertical;
+}
+::selection {
+  background: #dce5ff;
+  color: #17213e;
+}
+svg {
+  flex-shrink: 0;
+}
+input,
+textarea,
+select {
+  color: var(--text);
+  background: var(--surface);
+}
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

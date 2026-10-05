@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: pitchers
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 24
+      - key: NODE_ENV
+        value: production
+      - key: MONGOMS_DISABLE_POSTINSTALL
+        value: 'true'
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+      - key: ORIGIN
+        sync: false
+      - key: UPLOADS_MODE
+        value: cloudinary
+      - key: MAIL_MODE
+        value: resend
+      - key: ALLOW_REGISTRATION
+        value: 'false'
+      - key: DEMO_ENABLED
+        value: 'true'
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false

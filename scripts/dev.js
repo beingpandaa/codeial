@@ -46,7 +46,8 @@ function run(file, args, env) {
     NODE_ENV: 'development',
     MONGODB_URI: mongoUri,
     PORT: process.env.PORT || '4000',
-    ORIGIN: preview ? 'http://localhost:4000' : 'http://localhost:5173',
+    HOST: '127.0.0.1',
+    ORIGIN: preview ? `http://localhost:${process.env.PORT || '4000'}` : 'http://localhost:5173',
     SESSION_SECRET: process.env.SESSION_SECRET || 'codeial-local-development-session-secret-only',
     UPLOADS_MODE: process.env.UPLOADS_MODE || 'local',
     MAIL_MODE: process.env.MAIL_MODE || 'local',
@@ -62,7 +63,7 @@ function run(file, args, env) {
   if (!preview) {
     const clientRequire = createRequire(path.join(root, 'client/package.json'));
     const vite = path.join(path.dirname(clientRequire.resolve('vite/package.json')), 'bin/vite.js');
-    run(vite, ['client', '--config', 'client/vite.config.js', '--host', '127.0.0.1'], env);
+    run(vite, ['client', '--config', 'client/vite.config.js', '--host', 'localhost'], env);
   }
 })().catch((error) => {
   console.error(error);
